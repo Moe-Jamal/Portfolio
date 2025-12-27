@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'tailwindcss';
+
+:root {
+  --primary-color: #ff9143;
+
+  /* Fonts */
+  --font-primary: 'Syne', sans-serif;
+  --font-secondary: 'Rubik', sans-serif;
+
+  /* Brand Colors */
+  --color-black: #0c0908;
+  --color-dark: rgb(38, 42, 44);
+  --color-gray: rgb(85, 95, 97);
+  --color-white: #ffffff;
+
+  /* Greyscale Palette */
+  --grey-50: #f9fafb;
+  --grey-100: #f4f4f6;
+  --grey-200: #e5e6eb;
+  --grey-300: #d3d5da;
+  --grey-400: #9ea3af;
+  --grey-500: #6c727f;
+  --grey-600: #4d5461;
+  --grey-700: #394150;
+  --grey-800: #212936;
+  --grey-900: #161b21;
+}
+
+@theme {
+  --color-primary: var(--primary-color);
+  --color-secondary: var(--color-dark);
+  --color-secondary2: var(--color-gray);
+  --color-secondary3: var(--color-white);
+  --color-secondary4: var(--color-black);
+  --color-secondary5: var(--color-gray);
+  --color-gray-50: var(--grey-50);
+  --color-gray-100: var(--grey-100);
+  --color-gray-200: var(--grey-200);
+  --color-gray-300: var(--grey-300);
+  --color-gray-400: var(--grey-400);
+  --color-gray-500: var(--grey-500);
+  --color-gray-600: var(--grey-600);
+  --color-gray-700: var(--grey-700);
+  --color-gray-800: var(--grey-800);
+  --color-gray-900: var(--grey-900);
+}
+
+body {
+  font-family: var(--font-secondary);
+  background-color: rgb(26, 26, 26);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  margin: 0;
+}
+
+/* 
+h1 {
+  font-size: 72px;
+  line-height: 1.1;
+}
+h2 {
+  font-size: 64px;
+  line-height: 1.2;
+}
+h3 {
+  font-size: 56px;
+  line-height: 1.2;
+} */
+h4 {
+  font-family: var(--font-secondary);
+  font-size: 24px;
+  font-weight: 400;
+}

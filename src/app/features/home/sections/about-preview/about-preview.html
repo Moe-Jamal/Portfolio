@@ -1,0 +1,34 @@
+<section id="about-preview" class="container px-4 mx-auto py-12 md:py-20 relative">
+  <div class="grid md:grid-cols-2 gap-10 items-center justify-center">
+    <div class="content text-center md:text-left">
+      <h2 class="text-white md:me-auto text-4xl lg:text-[56px] leading-[1.3] md:max-w-[516px]">
+        Let’s get know about me closer
+      </h2>
+      <p class="text-secondary2 mb-8 md:mb-12 mt-6 max-w-[625px]">
+        Aaronn is a New York-based visual designer focusing on branding and visual identity. Her
+        portfolio showcases her wide range of work, spanning books, posters and web design.
+      </p>
+      <div class="w-fit mx-auto md:mx-0">
+        <app-main-button
+          link="/about"
+          label="Discover More About Me"
+          variant="primary"
+        ></app-main-button>
+      </div>
+    </div>
+    <div class="-order-1 md:order-2">
+      <div class="img-holder rounded-4xl max-w-[454px] mx-auto md:ms-auto relative">
+        <img src="/images/about-img.png" alt="about-img" class="w-full rounded-4xl" />
+        <span
+          class="absolute -top-[17px] right-0 w-[110px] h-[34px] rounded-full border border-primary"
+        >
+        </span>
+        <span
+          class="absolute bottom-[40px] -left-[12px] sm:-left-[27px] w-[34px] sm:w-[55px] h-[120px] sm:h-[178px] rounded-full border border-primary"
+        >
+        </span>
+      </div>
+    </div>
+  </div>
+  <app-bulb [bulbClasses]="'-left-[100px] top-[100px]'"></app-bulb>
+</section>

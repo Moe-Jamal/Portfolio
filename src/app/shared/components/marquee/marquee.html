@@ -1,0 +1,23 @@
+<div class="marquee-container" [attr.aria-hidden]="true">
+  <div
+    class="marquee-content"
+    [class.scroll-left]="direction() === 'left'"
+    [class.scroll-right]="direction() === 'right'"
+    [style.animationDuration]="speed() + 's'"
+  >
+    @for (item of text(); track $index) {
+    <span class="marquee-text">{{ item }}</span>
+    }
+  </div>
+  <div
+    aria-hidden="true"
+    class="marquee-content"
+    [class.scroll-left]="direction() === 'left'"
+    [class.scroll-right]="direction() === 'right'"
+    [style.animationDuration]="speed() + 's'"
+  >
+    @for (item of text(); track $index) {
+    <span class="marquee-text">{{ item }}</span>
+    }
+  </div>
+</div>

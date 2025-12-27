@@ -1,0 +1,27 @@
+<header class="min-h-screen relative overflow-hidden flex flex-col justify-center">
+  <!-- Background Marquee Effect -->
+  <div
+    class="absolute inset-x-0 bottom-[10%] z-0 flex flex-col justify-center pointer-events-none opacity-20"
+  >
+    <app-marquee
+      [text]="['FRONTEND DEVELOPER', 'Angular', 'Vue', 'Nuxt', 'React', 'Next']"
+      direction="left"
+    ></app-marquee>
+  </div>
+
+  <app-bulb [bulbClasses]="'left-1/2 right-auto lg:left-auto lg:right-0 top-[170px]'"></app-bulb>
+
+  <div
+    class="container relative mx-auto px-4 min-h-screen text-center z-20 flex justify-center flex-col items-center gap-10 sm:gap-16"
+  >
+    <h1 class="text-white max-w-[1000px] text-3xl sm:text-4xl md:text-5xl lg:text-7xl">
+      Building pixel-perfect, engaging, and accessible digital experiences.
+    </h1>
+    <app-main-button
+      label="Explore Projects"
+      variant="primary"
+      [icon]="true"
+      [link]="'/projects'"
+    ></app-main-button>
+  </div>
+</header>
