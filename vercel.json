@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "rewrites": [
-    {
-      "source": "/api/:match*",
-      "destination": "/"
+  "rewrites": [{ "source": "/(.*)", "destination": "/api" }],
+  "functions": {
+    "api/index.mjs": {
+      "runtime": "nodejs20.x",
+      "includeFiles": "dist/my-portfolio/**"
     }
-  ]
+  }
 }
