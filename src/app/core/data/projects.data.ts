@@ -38,6 +38,18 @@ export const PROJECTS: IProject[] = [
     technologies: ['React', 'Angular', 'Vue'],
     github: '/projects/2',
     highlight: true,
+    features: [
+      {
+        title: 'Responsive Design',
+        description:
+          'The website is designed to be responsive, ensuring a seamless experience across various devices and screen sizes.',
+      },
+      {
+        title: 'Modern UI/UX',
+        description:
+          'The website features a modern and clean user interface, providing a pleasant user experience. It uses a consistent color scheme and typography throughout the site.',
+      },
+    ],
   },
   {
     id: '3',
