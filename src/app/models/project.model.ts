@@ -1,11 +1,15 @@
 export interface IProject {
   id: string;
   title: string;
+  slug: string;
   subTitle: string;
   description: string;
   imageUrl: string;
   primaryColor: string;
   technologies: string[];
-  link?: string;
+  github?: string;
+  liveLink?: string;
+  demoLink?: string;
   highlight?: boolean;
+  features?: { title: string; description: string }[];
 }

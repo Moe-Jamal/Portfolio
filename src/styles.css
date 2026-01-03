@@ -14,7 +14,7 @@
   --color-dark: #262a2c;
   --color-gray: #555f61;
   --color-white: #ffffff;
-
+  --footer-color: #161b21;
   /* Greyscale Palette */
   --grey-50: #f9fafb;
   --grey-100: #f4f4f6;
@@ -26,6 +26,7 @@
   --grey-700: #394150;
   --grey-800: #212936;
   --grey-900: #161b21;
+  --navbar-height: 88px;
 }
 
 @theme {
@@ -35,6 +36,7 @@
   --color-secondary3: var(--color-white);
   --color-secondary4: var(--color-black);
   --color-secondary5: var(--color-gray);
+  --color-footer: var(--footer-color);
   --color-gray-50: var(--grey-50);
   --color-gray-100: var(--grey-100);
   --color-gray-200: var(--grey-200);
@@ -45,6 +47,7 @@
   --color-gray-700: var(--grey-700);
   --color-gray-800: var(--grey-800);
   --color-gray-900: var(--grey-900);
+  --spacing-navbar-height: var(--navbar-height);
 }
 
 body {

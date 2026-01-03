@@ -1,0 +1,43 @@
+.view-project-btn {
+    position: relative;
+    overflow: hidden;
+    background-color: color-mix(in srgb, var(--project-primary) 15%, transparent);
+    color: var(--project-primary);
+    border: 1px solid color-mix(in srgb, var(--project-primary) 30%, transparent);
+}
+
+.view-project-btn:hover {
+    background-color: var(--project-primary);
+    color: white;
+    box-shadow: 0 0 20px color-mix(in srgb, var(--project-primary) 40%, transparent);
+    transform: translateY(-2px);
+}
+
+.view-project-btn lucide-icon {
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.view-project-btn:hover lucide-icon {
+    transform: translate(2px, -2px) scale(1.1);
+}
+
+.view-project-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent,
+            rgba(255, 255, 255, 0.1),
+            transparent);
+    transform: rotate(45deg);
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.view-project-btn:hover::after {
+    left: 100%;
+    opacity: 1;
+}

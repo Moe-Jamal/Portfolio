@@ -21,6 +21,15 @@ app.get('/api/projects', (req, res) => {
   res.json(PROJECTS);
 });
 
+app.get('/api/projects/:slug', (req, res) => {
+  const project = PROJECTS.find((p) => p.slug === req.params.slug);
+  if (project) {
+    res.json(project);
+  } else {
+    res.status(404).json({ message: 'Project not found' });
+  }
+});
+
 /**
  * Serve static files from /browser
  */

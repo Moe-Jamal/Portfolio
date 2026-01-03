@@ -1,15 +1,18 @@
 import { Component, input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IProject } from 'src/app/models/project.model';
+import { LucideAngularModule, ArrowUpRight } from 'lucide-angular';
 import * as Icons from '../svgs';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-project-card',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, LucideAngularModule],
   templateUrl: './project-card.html',
   styleUrl: './project-card.css',
 })
 export class ProjectCard {
+  readonly ArrowUpRight = ArrowUpRight;
   readonly project = input<IProject>({} as IProject);
 
   getIconComponent(tech: string): any {

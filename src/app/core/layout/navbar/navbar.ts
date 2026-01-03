@@ -1,13 +1,5 @@
 import { isPlatformBrowser } from '@angular/common';
-import {
-  Component,
-  ElementRef,
-  HostListener,
-  inject,
-  PLATFORM_ID,
-  signal,
-  ViewChild,
-} from '@angular/core';
+import { Component, HostListener, inject, PLATFORM_ID, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -17,9 +9,9 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './navbar.css',
 })
 export class NavbarComponent {
-  @ViewChild('navbar') navbar!: ElementRef;
-  isOpen = signal<boolean>(false);
   platFormId = inject(PLATFORM_ID);
+  isOpen = signal<boolean>(false);
+  isScrolled = signal<boolean>(false);
   toggleMenu() {
     this.isOpen.update((isOpen) => !isOpen);
   }
@@ -29,18 +21,16 @@ export class NavbarComponent {
   }
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platFormId) && window.scrollY > 50) {
-      this.navbar.nativeElement.classList.add('backdrop-blur-md');
-    } else {
-      this.navbar.nativeElement.classList.remove('backdrop-blur-md');
+      this.isScrolled.set(true);
     }
   }
 
   @HostListener('window:scroll', [])
   onScroll() {
     if (window.scrollY > 50) {
-      this.navbar.nativeElement.classList.add('backdrop-blur-md');
+      this.isScrolled.set(true);
     } else {
-      this.navbar.nativeElement.classList.remove('backdrop-blur-md');
+      this.isScrolled.set(false);
     }
   }
 }

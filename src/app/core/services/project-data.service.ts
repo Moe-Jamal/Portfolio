@@ -9,6 +9,7 @@ import { finalize } from 'rxjs';
 export class ProjectDataService {
   private http = inject(HttpClient);
   private projects = signal<IProject[]>([]);
+  private currentProject = signal<IProject | null>(null);
   private loading = signal<boolean>(false);
 
   loadProjects() {
@@ -22,8 +23,27 @@ export class ProjectDataService {
       });
   }
 
+  loadProject(slug: string) {
+    this.loading.set(true);
+    this.currentProject.set(null);
+    this.http
+      .get<IProject>(`/api/projects/${slug}`)
+      .pipe(finalize(() => this.loading.set(false)))
+      .subscribe({
+        next: (data) => this.currentProject.set(data),
+        error: (err) => {
+          console.error(`Failed to load project with slug: ${slug}`, err);
+          this.currentProject.set(null);
+        },
+      });
+  }
+
   getProjects() {
     return this.projects.asReadonly();
+  }
+
+  getCurrentProject() {
+    return this.currentProject.asReadonly();
   }
 
   isLoading() {
