@@ -13,7 +13,7 @@
   </div>
 </div>
 } @else if (project(); as p) {
-<div class="project-details pt-28 pb-20 min-h-screen text-white overflow-hidden">
+<section class="project-details pt-navbar-height pb-20 min-h-screen text-white overflow-hidden">
   <div class="container px-4 mx-auto">
     <!-- Back Button -->
     <button
@@ -51,9 +51,9 @@
       </div>
 
       <!-- Project Info -->
-      <div class="flex flex-col gap-6">
-        <div>
-          <h1 class="text-5xl sm:text-6xl font-black mb-2 tracking-tight">{{ p.title }}</h1>
+      <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-2">
+          <h1 class="text-5xl sm:text-6xl font-black tracking-tight">{{ p.title }}</h1>
           <p
             [style.color]="p.primaryColor"
             class="text-xl font-bold uppercase tracking-widest italic"
@@ -87,7 +87,7 @@
         </div>
 
         <!-- Action Buttons -->
-        <div class="flex flex-wrap gap-4 pt-4">
+        <div class="flex flex-wrap gap-4 pt-5">
           @if (p.demoLink) {
           <a
             [href]="p.demoLink"
@@ -151,12 +151,12 @@
     </div>
     }
   </div>
-</div>
+</section>
 } @else {
 <!-- Not Found State -->
-<div class="min-h-screen bg-[#0d0d0d] flex flex-col items-center justify-center p-4">
+<div class="min-h-screen flex flex-col items-center justify-center p-4">
   <div class="text-primary mb-6">
-    <lucide-icon [img]="AlertCircle" class="w-20 h-20 opacity-20"></lucide-icon>
+    <lucide-icon [img]="AlertCircle" class="w-20 h-20 opacity-60 animate-pulse"></lucide-icon>
   </div>
   <h2 class="text-3xl font-black text-white mb-2">Project Not Found</h2>
   <p class="text-[#8B949E] mb-8 text-center max-w-md">
