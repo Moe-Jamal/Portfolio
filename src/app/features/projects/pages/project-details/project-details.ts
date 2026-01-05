@@ -6,12 +6,13 @@ import { CommonModule } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
 import * as Icons from '@shared/components/svgs';
+import { LoadingScreen } from '@shared/components/loading-screen/loading-screen';
 
 @Component({
   selector: 'app-project-details',
   templateUrl: './project-details.html',
   styleUrl: './project-details.css',
-  imports: [RouterLink, LucideAngularModule, CommonModule],
+  imports: [RouterLink, LucideAngularModule, CommonModule, LoadingScreen],
 })
 export class ProjectDetailsComponent {
   private route = inject(ActivatedRoute);

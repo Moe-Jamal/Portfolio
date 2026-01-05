@@ -1,17 +1,6 @@
 @if (isLoading()) {
 <!-- Loading State -->
-<div class="min-h-screen bg-[#0d0d0d] flex flex-col items-center justify-center p-4">
-  <div class="relative w-20 h-20 mb-6">
-    <div class="absolute inset-0 border-4 border-primary/20 rounded-full"></div>
-    <div
-      class="absolute inset-0 border-4 border-primary border-t-transparent rounded-full animate-spin"
-    ></div>
-  </div>
-  <div class="animate-pulse flex flex-col items-center gap-2">
-    <span class="text-white text-xl font-bold tracking-wider uppercase">Loading</span>
-    <span class="text-[#8B949E] text-sm">Fetching project details...</span>
-  </div>
-</div>
+<app-loading-screen message="Loading project details..."></app-loading-screen>
 } @else if (project(); as p) {
 <section class="project-details pt-navbar-height pb-20 min-h-screen text-white overflow-hidden">
   <div class="container px-4 mx-auto">

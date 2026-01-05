@@ -1,3 +1,54 @@
-<footer>
-  <p>&copy; 2025 Jimmy Portfolio</p>
+<footer
+  class="footer bg-[url('/images/footer-img.png')] bg-cover bg-center bg-no-repeat pt-24 pb-6"
+>
+  <div class="container px-4 mx-auto">
+    <div class="contact text-center max-w-[720px] mx-auto text-white flex flex-col gap-4 mb-16">
+      <h3 class="text-bold text-3xl sm:text-4xl md:text-5xl">
+        Ready to take <span class="text-primary">your</span> digital presence to the next level?
+      </h3>
+      <p class="text-secondary2">
+        Reach out to me today and let's discuss how I can help you achieve your goals.
+      </p>
+      <app-main-button [icon]="true" label="Contact Me Now" class="mx-auto mt-6" link="/contact" />
+    </div>
+    <div
+      class="flex items-center justify-center flex-wrap gap-x-10 gap-y-4 sm:justify-between text-white"
+    >
+      <p class="text-center">&copy;2026 Jimmy. All rights reserved.</p>
+      <ul class="flex gap-4">
+        <li>
+          <a
+            href="https://github.com/Moe-Jamal"
+            target="_blank"
+            class="inset-shadow-[0_0_8px_0.82px_rgba(255,255,255,0.12)] w-[40px] h-[40px] flex items-center justify-center border-2 border-white/25 rounded-xl"
+            ><app-github-footer-icon></app-github-footer-icon
+          ></a>
+        </li>
+        <li>
+          <a
+            href="https://wa.me/+201023780008"
+            target="_blank"
+            class="inset-shadow-[0_0_8px_0.82px_rgba(255,255,255,0.12)] w-[40px] h-[40px] flex items-center justify-center border-2 border-white/25 rounded-xl"
+            ><app-whatsapp-icon></app-whatsapp-icon
+          ></a>
+        </li>
+        <li>
+          <a
+            href="https://www.instagram.com/jimmyportfolio"
+            target="_blank"
+            class="inset-shadow-[0_0_8px_0.82px_rgba(255,255,255,0.12)] w-[40px] h-[40px] flex items-center justify-center border-2 border-white/25 rounded-xl"
+            ><app-instagram-icon></app-instagram-icon
+          ></a>
+        </li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/mohamed-jamal-40416b296/"
+            target="_blank"
+            class="inset-shadow-[0_0_8px_0.82px_rgba(255,255,255,0.12)] w-[40px] h-[40px] flex items-center justify-center border-2 border-white/25 rounded-xl"
+            ><app-linkedIn-icon></app-linkedIn-icon
+          ></a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </footer>

@@ -1,18 +1,14 @@
+@if (loading()) {
+<app-loading-screen message="Loading projects..."></app-loading-screen>
+} @else {
 <section class="project-list pt-navbar-height">
   <div class="container px-4 mx-auto">
     <app-page-title title="My Projects" description="A collection of my projects"></app-page-title>
-    <!-- List of project components will go here -->
-
-    @if (loading()) {
-    <div class="col-span-full flex justify-center py-20">
-      <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
-    </div>
-    } @else {
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       @for (project of projects(); track project.id) {
       <app-project-card [project]="project" />
       }
     </div>
-    }
   </div>
 </section>
+}
