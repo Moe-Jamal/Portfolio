@@ -51,6 +51,10 @@
   --spacing-navbar-height: var(--navbar-height);
 }
 
+@utility stroke-primary {
+  -webkit-text-stroke: 2px var(--primary-color);
+}
+
 body {
   font-family: var(--font-secondary);
   background-color: rgb(26, 26, 26);

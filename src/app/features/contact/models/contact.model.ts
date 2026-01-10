@@ -1,4 +1,4 @@
-export interface IContactMessage {
+export interface IContact {
   name: string;
   email: string;
   subject: string;

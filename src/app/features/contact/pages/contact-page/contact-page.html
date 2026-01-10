@@ -1,5 +1,117 @@
-<div class="contact-page">
-  <h1>Contact Me</h1>
-  <p>Have a question or want to work together?</p>
-  <!-- Contact form will go here -->
-</div>
+<section id="contact-page" class="pt-navbar-height">
+  <div class="container px-4 mx-auto">
+    <app-page-title title="Contact Me" description="Get in touch with me"></app-page-title>
+    <div class="grid lg:grid-cols-2 gap-6 items-center">
+      <div class="content text-white text-center md:text-left">
+        <h2
+          class="mb-5! md:me-auto text-4xl sm:text-5xl lg:text-[56px] leading-[1.3] md:max-w-[600px]"
+        >
+          Let's <span class="stroke-primary text-transparent">talk</span> for something special
+        </h2>
+        <p class="text-text max-w-[625px]">
+          I seek to push the limits of creativity to create high-engaging, user-friendly, and
+          memorable interactive experiences.
+        </p>
+        <!-- <a href="mailto:moe.jamal.360@gmail.com">moe.jamal.360@gmail.com</a> -->
+      </div>
+      <form class="flex flex-col gap-3" novalidate (submit)="onSubmit($event)">
+        <div class="flex flex-col">
+          <label for="name" class="text-xl sm:text-2xl font-medium text-white uppercase"
+            >Name</label
+          >
+          <input
+            type="text"
+            id="name"
+            class="caret-primary text-primary border-b"
+            [field]="contactForm.name"
+            [class]="
+              contactForm.name().invalid() && contactForm.name().touched()
+                ? 'border-red-500'
+                : 'border-text'
+            "
+          />
+          <div class="text-red-500 mt-2 text-sm h-5">
+            @if(contactForm.name().invalid() && contactForm.name().touched()) { @for (error of
+            contactForm.name().errors() ; track error) { {{ error.message }}
+            } }
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <label for="email" class="text-xl sm:text-2xl font-medium text-white uppercase"
+            >Email</label
+          >
+          <input
+            type="email"
+            id="email"
+            class="caret-primary text-primary border-b"
+            [field]="contactForm.email"
+            [class]="
+              contactForm.email().invalid() && contactForm.email().touched()
+                ? 'border-red-500'
+                : 'border-text'
+            "
+          />
+          <div class="text-red-500 mt-2 text-sm h-5">
+            @if(contactForm.email().invalid() && contactForm.email().touched()) { @for (error of
+            contactForm.email().errors() ; track error) {
+            {{ error.message }}
+            } }
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <label for="subject" class="text-xl sm:text-2xl font-medium text-white uppercase"
+            >Subject</label
+          >
+          <input
+            type="text"
+            id="subject"
+            class="caret-primary text-primary border-b"
+            [field]="contactForm.subject"
+            [class]="
+              contactForm.subject().invalid() && contactForm.subject().touched()
+                ? 'border-red-500'
+                : 'border-text'
+            "
+          />
+          <div class="text-red-500 mt-2 text-sm h-5">
+            @if(contactForm.subject().invalid() && contactForm.subject().touched()) { @for (error of
+            contactForm.subject().errors() ; track error) {
+            {{ error.message }}
+            } }
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <label for="message" class="text-xl sm:text-2xl font-medium text-white uppercase"
+            >Message</label
+          >
+          <textarea
+            id="message"
+            rows="3"
+            class="caret-primary text-primary border-b"
+            [field]="contactForm.message"
+            [class]="
+              contactForm.message().invalid() && contactForm.message().touched()
+                ? 'border-red-500'
+                : 'border-text'
+            "
+          ></textarea>
+          <div class="text-red-500 mt-2 text-sm h-5">
+            @if(contactForm.message().invalid() && contactForm.message().touched()) { @for (error of
+            contactForm.message().errors() ; track error) {
+            {{ error.message }}
+            } }
+          </div>
+        </div>
+        <button
+          [disabled]="isSending()"
+          class="px-4 py-2 rounded-full bg-primary w-fit cursor-pointer mt-4 text-white hover:bg-primary/80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-3"
+        >
+          @if (isSending()) {
+          <i-lucide [name]="Loader2" class="animate-spin size-5"></i-lucide>
+          }
+          {{ isSending() ? 'Sending...' : 'Send Message' }}
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
