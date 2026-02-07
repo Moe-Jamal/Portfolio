@@ -6,6 +6,7 @@ export interface IProject {
   description: string;
   imageUrl: string;
   scrollImage?: string;
+  videoUrl?: string;
   primaryColor: string;
   techStack: string[];
   technologies: string[];

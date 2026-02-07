@@ -36,33 +36,74 @@
             class="absolute inset-0 mix-blend-hue"
           ></div>
 
-          <!-- Scrollable Container -->
-          <div
-            class="w-[calc(100%-25px)] h-[calc(100%-25px)] sm:w-[calc(100%-40px)] sm:h-[calc(100%-40px)] rounded-xl z-20 overflow-y-auto overflow-x-hidden scrollbar-hide transition-all duration-500"
-            (scroll)="onScroll($event)"
-          >
-            <img
-              src="{{ p.scrollImage }}"
-              alt="{{ p.title }}"
-              class="w-full h-auto block"
-              loading="lazy"
-            />
-
-            <!-- Overlay removed on scroll -->
-            @if (isAtTop()) {
-              <div
-                class="absolute inset-x-[12.5px] top-[12.5px] bottom-[12.5px] sm:inset-x-[20px] sm:top-[20px] sm:bottom-[20px] z-30 rounded-xl pointer-events-none flex flex-col items-center justify-center transition-all duration-500 bg-black/40 backdrop-blur-[2px]"
-                [class.opacity-0]="!isAtTop()"
-              >
-                <div class="flex flex-col items-center gap-2 text-white/90">
-                  <div class="p-3 rounded-full bg-white/10 border border-white/20">
-                    <lucide-icon [img]="ChevronDown" class="w-6 h-6 animate-bounce"></lucide-icon>
+          <!-- Video Player Logic -->
+          @if (p.videoUrl) {
+            <div
+              class="z-20 w-[calc(100%-25px)] h-[calc(100%-25px)] sm:w-[calc(100%-40px)] sm:h-[calc(100%-40px)] rounded-xl overflow-hidden bg-black relative"
+            >
+              @if (!isPlaying()) {
+                <!-- Video Thumbnail & Overlay -->
+                <div class="absolute inset-0 z-30 group cursor-pointer" (click)="playVideo()">
+                  <img
+                    [src]="p.imageUrl"
+                    [alt]="p.title + ' thumbnail'"
+                    class="w-full h-full object-cover opacity-80 transition-opacity duration-300 group-hover:opacity-60"
+                  />
+                  <!-- Play Button Overlay -->
+                  <div class="absolute inset-0 flex items-center justify-center">
+                    <div
+                      [style.backgroundColor]="p.primaryColor + '20'"
+                      [style.borderColor]="p.primaryColor"
+                      class="w-16 h-16 rounded-full border-2 flex items-center justify-center backdrop-blur-sm transition-transform duration-300 group-hover:scale-110"
+                    >
+                      <lucide-icon
+                        [img]="Play"
+                        [style.color]="p.primaryColor"
+                        class="w-8 h-8 fill-current"
+                      ></lucide-icon>
+                    </div>
                   </div>
-                  <span class="text-sm font-medium tracking-wider uppercase">Scroll to View</span>
                 </div>
-              </div>
-            }
-          </div>
+              } @else {
+                <!-- Video Player -->
+                <video
+                  [src]="p.videoUrl"
+                  class="w-full h-full object-cover"
+                  controls
+                  autoplay
+                  playsinline
+                ></video>
+              }
+            </div>
+          } @else {
+            <!-- Scrollable Container -->
+            <div
+              class="w-[calc(100%-25px)] h-[calc(100%-25px)] sm:w-[calc(100%-40px)] sm:h-[calc(100%-40px)] rounded-xl z-20 overflow-y-auto overflow-x-hidden scrollbar-hide transition-all duration-500"
+              (scroll)="onScroll($event)"
+            >
+              <img
+                src="{{ p.scrollImage }}"
+                alt="{{ p.title }}"
+                class="w-full h-auto block"
+                loading="lazy"
+              />
+
+              <!-- Overlay removed on scroll -->
+              @if (isAtTop()) {
+                <div
+                  class="absolute inset-x-[12.5px] top-[12.5px] bottom-[12.5px] sm:inset-x-[20px] sm:top-[20px] sm:bottom-[20px] z-30 rounded-xl pointer-events-none flex flex-col items-center justify-center transition-all duration-500 bg-black/40 backdrop-blur-[2px]"
+                  [class.opacity-0]="!isAtTop()"
+                >
+                  <div class="flex flex-col items-center gap-2 text-white/90">
+                    <div class="p-3 rounded-full bg-white/10 border border-white/20">
+                      <lucide-icon [img]="ChevronDown" class="w-6 h-6 animate-bounce"></lucide-icon>
+                    </div>
+                    <span class="text-sm font-medium tracking-wider uppercase">Scroll to View</span>
+                  </div>
+                </div>
+              }
+            </div>
+          }
         </div>
 
         <!-- Project Info -->

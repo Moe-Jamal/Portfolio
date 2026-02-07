@@ -7,6 +7,7 @@ import {
   Monitor,
   AlertCircle,
   ChevronDown,
+  Play,
 } from 'lucide-angular';
 import { ProjectDataService } from 'src/app/core/services/project-data.service';
 import { CommonModule } from '@angular/common';
@@ -30,12 +31,14 @@ export class ProjectDetailsComponent {
   readonly Monitor = Monitor;
   readonly AlertCircle = AlertCircle;
   readonly ChevronDown = ChevronDown;
+  readonly Play = Play;
 
   slug = toSignal(this.route.params.pipe(map((p) => p['slug'])));
   project = this.projectService.getCurrentProject();
   isLoading = this.projectService.isLoading();
 
   isAtTop = signal(true);
+  isPlaying = signal(false);
 
   constructor() {
     effect(() => {
@@ -43,8 +46,13 @@ export class ProjectDetailsComponent {
       if (s) {
         this.projectService.loadProject(s);
         this.isAtTop.set(true);
+        this.isPlaying.set(false);
       }
     });
+  }
+
+  playVideo(): void {
+    this.isPlaying.set(true);
   }
 
   onScroll(event: Event): void {
