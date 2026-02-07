@@ -57,7 +57,7 @@
 
 body {
   font-family: var(--font-secondary);
-  background-color: rgb(26, 26, 26);
+  background-color: #1a1a1a;
 }
 
 h1,
@@ -85,4 +85,209 @@ h4 {
   font-family: var(--font-secondary);
   font-size: 24px;
   font-weight: 400;
+}
+
+@media (min-width: 768px) {
+
+  /* --- OPTION 1: Circular Reveal (The User Favorite) --- */
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 1.2s;
+    animation-timing-function: ease-in-out;
+    mix-blend-mode: normal;
+  }
+
+  ::view-transition-old(root) {
+    animation-name: scale-out;
+  }
+
+  ::view-transition-new(root) {
+    animation-name: reveal-in-circle;
+    z-index: 1000;
+  }
+
+  @keyframes scale-out {
+    from {
+      opacity: 1;
+      transform: scale(1);
+      filter: brightness(1);
+    }
+
+    to {
+      opacity: 0;
+      transform: scale(0.9);
+      filter: brightness(1);
+    }
+  }
+
+  @keyframes reveal-in-circle {
+    from {
+      clip-path: circle(0% at 50% 50%);
+    }
+
+    to {
+      clip-path: circle(150% at 50% 50%);
+    }
+  }
+
+
+
+  /* --- OPTION 2: Stacking Slide Up (Previous) --- */
+  /*
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.6s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  animation-name: slide-back-out;
+}
+
+::view-transition-new(root) {
+  animation-name: slide-up-in;
+  box-shadow: 0 -20px 50px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+@keyframes slide-back-out {
+  from { opacity: 1; transform: scale(1); filter: brightness(1); }
+  to { opacity: 0; transform: scale(0.9); filter: brightness(0.5); }
+}
+
+@keyframes slide-up-in {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+*/
+
+
+  /* --- OPTION 3: Cinematic Focus & Zoom (New & Modern) --- */
+  /* Creates a high-end feel by blurring the old page out while zooming the new one in */
+  /* ::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.6s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  animation-name: blur-out;
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  animation-name: blur-in;
+  z-index: 2;
+  mix-blend-mode: plus-lighter;
+}
+
+@keyframes blur-out {
+  to {
+    opacity: 0;
+    filter: blur(16px) brightness(0.5);
+    transform: scale(1.1);
+  }
+}
+
+@keyframes blur-in {
+  from {
+    opacity: 0;
+    filter: blur(20px) brightness(2);
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0) brightness(1);
+    transform: scale(1);
+  }
+} */
+
+  /* --- OPTION 4: Diamond Expansion (The Final Boss) --- */
+
+  /* ::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 1.2s;
+  animation-timing-function: cubic-bezier(0.87, 0, 0.13, 1);
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  animation-name: fade-back;
+}
+
+::view-transition-new(root) {
+  animation-name: reveal-diamond;
+  z-index: 1000;
+}
+
+@keyframes fade-back {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+@keyframes reveal-diamond {
+  from {
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+  }
+
+  to {
+    clip-path: polygon(50% -100%, 150% 50%, 50% 200%, -50% 50%);
+  }
+} */
+
+
+  /* --- OPTION 5: The Curtain Rise (Robust & Cinematic) --- */
+  /* The new page rises up while unmasking itself, creating a premium "reveal" effect. */
+  /* 
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.83, 0, 0.17, 1);
+  mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  animation-name: curtain-out;
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  animation-name: curtain-in;
+  z-index: 2;
+}
+
+@keyframes curtain-out {
+  to {
+    transform: translateY(-20%);
+    opacity: 0.5;
+    filter: brightness(0.5);
+  }
+}
+
+@keyframes curtain-in {
+  from {
+    clip-path: inset(100% 0 0 0);
+    transform: translateY(10%);
+  }
+
+  to {
+    clip-path: inset(0 0 0 0);
+    transform: translateY(0);
+  }
+}
+
+::view-transition-group(root) {
+  animation-name: none;
+} */
 }
