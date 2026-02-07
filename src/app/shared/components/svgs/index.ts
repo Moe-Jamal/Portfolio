@@ -13,3 +13,4 @@ export * from './sass-icon';
 export * from './tailwind-icon';
 export * from './ts-icon';
 export * from './vue-icon';
+export * from './pania-icon';

@@ -5,7 +5,9 @@ export interface IProject {
   subTitle: string;
   description: string;
   imageUrl: string;
+  scrollImage?: string;
   primaryColor: string;
+  techStack: string[];
   technologies: string[];
   github?: string;
   liveLink?: string;

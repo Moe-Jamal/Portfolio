@@ -1,6 +1,13 @@
-import { Component, inject, computed, OnInit, effect } from '@angular/core';
+import { Component, inject, signal, effect } from '@angular/core';
 import { RouterLink, ActivatedRoute } from '@angular/router';
-import { LucideAngularModule, MoveLeft, Github, Monitor, AlertCircle } from 'lucide-angular';
+import {
+  LucideAngularModule,
+  MoveLeft,
+  Github,
+  Monitor,
+  AlertCircle,
+  ChevronDown,
+} from 'lucide-angular';
 import { ProjectDataService } from 'src/app/core/services/project-data.service';
 import { CommonModule } from '@angular/common';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -22,18 +29,27 @@ export class ProjectDetailsComponent {
   readonly Github = Github;
   readonly Monitor = Monitor;
   readonly AlertCircle = AlertCircle;
+  readonly ChevronDown = ChevronDown;
 
   slug = toSignal(this.route.params.pipe(map((p) => p['slug'])));
   project = this.projectService.getCurrentProject();
   isLoading = this.projectService.isLoading();
+
+  isAtTop = signal(true);
 
   constructor() {
     effect(() => {
       const s = this.slug();
       if (s) {
         this.projectService.loadProject(s);
+        this.isAtTop.set(true);
       }
     });
+  }
+
+  onScroll(event: Event): void {
+    const element = event.target as HTMLElement;
+    this.isAtTop.set(element.scrollTop <= 10);
   }
 
   getIconComponent(tech: string): any {
@@ -43,6 +59,7 @@ export class ProjectDetailsComponent {
       angular: Icons.AngularIcon,
       react: Icons.ReactIcon,
       vue: Icons.VueIcon,
+      vuejs: Icons.VueIcon,
       nuxt: Icons.NuxtIcon,
       next: Icons.NextIcon,
       nextjs: Icons.NextIcon,
@@ -54,6 +71,7 @@ export class ProjectDetailsComponent {
       tailwindcss: Icons.TailwindIcon,
       bootstrap: Icons.BootstrapIcon,
       sass: Icons.SassIcon,
+      scss: Icons.SassIcon,
       css: Icons.CSSIcon,
       html: Icons.HTMLIcon,
       gsap: Icons.GsapIcon,
