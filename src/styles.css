@@ -91,6 +91,11 @@ h4 {
 
   /* --- OPTION 1: Circular Reveal (The User Favorite) --- */
 
+
+  /* footer {
+    view-transition-name: footer;
+  }
+
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation-duration: 1.2s;
@@ -130,7 +135,7 @@ h4 {
       clip-path: circle(150% at 50% 50%);
     }
   }
-
+ */
 
 
   /* --- OPTION 2: Stacking Slide Up (Previous) --- */
@@ -209,85 +214,85 @@ h4 {
   /* --- OPTION 4: Diamond Expansion (The Final Boss) --- */
 
   /* ::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 1.2s;
-  animation-timing-function: cubic-bezier(0.87, 0, 0.13, 1);
-  mix-blend-mode: normal;
-}
-
-::view-transition-old(root) {
-  animation-name: fade-back;
-}
-
-::view-transition-new(root) {
-  animation-name: reveal-diamond;
-  z-index: 1000;
-}
-
-@keyframes fade-back {
-  from {
-    opacity: 1;
-    transform: scale(1);
+  ::view-transition-new(root) {
+    animation-duration: 1.2s;
+    animation-timing-function: cubic-bezier(0.87, 0, 0.13, 1);
+    mix-blend-mode: normal;
   }
 
-  to {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-}
-
-@keyframes reveal-diamond {
-  from {
-    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+  ::view-transition-old(root) {
+    animation-name: fade-back;
   }
 
-  to {
-    clip-path: polygon(50% -100%, 150% 50%, 50% 200%, -50% 50%);
+  ::view-transition-new(root) {
+    animation-name: reveal-diamond;
+    z-index: 1000;
   }
-} */
+
+  @keyframes fade-back {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    to {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+  }
+
+  @keyframes reveal-diamond {
+    from {
+      clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    }
+
+    to {
+      clip-path: polygon(50% -100%, 150% 50%, 50% 200%, -50% 50%);
+    }
+  } */
 
 
   /* --- OPTION 5: The Curtain Rise (Robust & Cinematic) --- */
   /* The new page rises up while unmasking itself, creating a premium "reveal" effect. */
-  /* 
-::view-transition-old(root),
-::view-transition-new(root) {
-  animation-duration: 1s;
-  animation-timing-function: cubic-bezier(0.83, 0, 0.17, 1);
-  mix-blend-mode: normal;
-}
 
-::view-transition-old(root) {
-  animation-name: curtain-out;
-  z-index: 1;
-}
-
-::view-transition-new(root) {
-  animation-name: curtain-in;
-  z-index: 2;
-}
-
-@keyframes curtain-out {
-  to {
-    transform: translateY(-20%);
-    opacity: 0.5;
-    filter: brightness(0.5);
-  }
-}
-
-@keyframes curtain-in {
-  from {
-    clip-path: inset(100% 0 0 0);
-    transform: translateY(10%);
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0.83, 0, 0.17, 1);
+    mix-blend-mode: normal;
   }
 
-  to {
-    clip-path: inset(0 0 0 0);
-    transform: translateY(0);
+  ::view-transition-old(root) {
+    animation-name: curtain-out;
+    z-index: 1;
   }
-}
 
-::view-transition-group(root) {
-  animation-name: none;
-} */
+  ::view-transition-new(root) {
+    animation-name: curtain-in;
+    z-index: 2;
+  }
+
+  @keyframes curtain-out {
+    to {
+      transform: translateY(-20%);
+      opacity: 0.5;
+      filter: brightness(0.5);
+    }
+  }
+
+  @keyframes curtain-in {
+    from {
+      clip-path: inset(100% 0 0 0);
+      transform: translateY(10%);
+    }
+
+    to {
+      clip-path: inset(0 0 0 0);
+      transform: translateY(0);
+    }
+  }
+
+  ::view-transition-group(root) {
+    animation-name: none;
+  }
 }
