@@ -1,7 +1,10 @@
 <section id="projects-highlight" class="container px-4 mx-auto py-12 md:py-20">
   <div class="flex items-center justify-center flex-col gap-8 relative mb-16">
-    <h2 class="text-white text-4xl sm:text-5xl lg:text-[64px] leading-[1.3] text-center">
-      My Projects Highlight
+    <h2
+      class="text-white text-4xl sm:text-5xl lg:text-[64px] leading-[1.3] text-center"
+      appSplitText
+    >
+      My Projects <span class="text-primary font-bold">Highlight</span>
     </h2>
     <app-main-button link="/projects" label="Explore More" variant="outline" [icon]="true" />
     <app-bulb
@@ -10,11 +13,13 @@
   </div>
   <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
     @if (loading()) {
-    <div class="col-span-full flex justify-center py-20">
-      <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
-    </div>
-    } @else { @for (project of projectsHighlighted(); track project.id) {
-    <app-project-card [project]="project" />
-    } }
+      <div class="col-span-full flex justify-center py-20">
+        <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+      </div>
+    } @else {
+      @for (project of projectsHighlighted(); track project.id) {
+        <app-project-card [project]="project" />
+      }
+    }
   </div>
 </section>

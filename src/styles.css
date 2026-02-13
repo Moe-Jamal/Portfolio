@@ -68,6 +68,11 @@ h3 {
   margin: 0;
 }
 
+*::selection {
+  background-color: var(--primary-color);
+  color: var(--color-dark);
+}
+
 /* 
 h1 {
   font-size: 72px;

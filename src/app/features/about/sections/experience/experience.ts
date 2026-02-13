@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { SplitTextDirective } from '@shared/directives/split-text.directive';
 
 interface ExperienceItem {
   title: string;
@@ -11,7 +12,7 @@ interface ExperienceItem {
 
 @Component({
   selector: 'app-experience',
-  imports: [],
+  imports: [SplitTextDirective],
   templateUrl: './experience.html',
   styleUrl: './experience.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -1,9 +1,10 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { NgOptimizedImage } from '@angular/common';
+import { SplitTextDirective } from '@shared/directives/split-text.directive';
 
 @Component({
   selector: 'app-tech-marquee',
-  imports: [NgOptimizedImage],
+  imports: [NgOptimizedImage, SplitTextDirective],
   templateUrl: './tech-marquee.html',
   styleUrl: './tech-marquee.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -3,6 +3,7 @@ import { provideRouter, withInMemoryScrolling, withViewTransitions } from '@angu
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import { GsapService } from './shared/services/gsap.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -10,7 +11,11 @@ export const appConfig: ApplicationConfig = {
     provideRouter(
       routes,
       withInMemoryScrolling({ scrollPositionRestoration: 'enabled' }),
-      withViewTransitions(),
+      withViewTransitions({
+        onViewTransitionCreated: ({ transition }) => {
+          GsapService.transitionFinished = transition.finished;
+        },
+      }),
     ),
     provideHttpClient(withFetch()),
     provideClientHydration(withEventReplay()),

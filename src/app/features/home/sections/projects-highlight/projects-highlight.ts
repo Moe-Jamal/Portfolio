@@ -3,12 +3,13 @@ import { MainButton } from '@shared/components/main-button/main-button';
 import { Bulb } from '@shared/components/bulb/bulb';
 import { ProjectCard } from '@shared/components/project-card/project-card';
 import { ProjectDataService } from 'src/app/core/services/project-data.service';
+import { SplitTextDirective } from '@shared/directives/split-text.directive';
 
 @Component({
   selector: 'app-projects-highlight',
   templateUrl: './projects-highlight.html',
   styleUrl: './projects-highlight.css',
-  imports: [MainButton, Bulb, ProjectCard],
+  imports: [MainButton, Bulb, ProjectCard, SplitTextDirective],
 })
 export class ProjectsHighlightComponent implements OnInit {
   private projectService = inject(ProjectDataService);
@@ -18,7 +19,7 @@ export class ProjectsHighlightComponent implements OnInit {
   projectsHighlighted = computed(() =>
     this.projectService
       .getProjects()()
-      .filter((p) => p.highlight)
+      .filter((p) => p.highlight),
   );
 
   ngOnInit() {
