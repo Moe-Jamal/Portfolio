@@ -1,0 +1,55 @@
+<section class="about-page pt-navbar-height">
+  <div class="container px-4 mx-auto">
+    <app-page-title title="About Me" description="Little Brief About Myself"></app-page-title>
+
+    <div class="mission-section mt-16 lg:mt-24 grid lg:grid-cols-2 gap-10 items-start">
+      <h2 class="mission-title text-4xl lg:text-5xl lg:max-w-md text-white">
+        My mission is to make <span class="text-primary">design</span> easier.
+      </h2>
+      <div class="mission-desc text-secondary text-lg leading-relaxed">
+        <p>
+          I’m Mohamed Jamal, a Front-End Developer and designer from Egypt, passionate about
+          creating web experiences that are both beautiful and functional. I specialize in Angular,
+          Vue, Nuxt, and modern web technologies to deliver scalable and responsive applications
+          with clean, maintainable code.
+        </p>
+        <p class="mt-4">
+          My work focuses on bridging the gap between design and development—turning ideas into
+          interactive interfaces that are intuitive and engaging. I care about performance,
+          accessibility, and smooth animations to make every user interaction enjoyable.
+        </p>
+        <p class="mt-4">
+          Beyond coding, I love learning new technologies, exploring UI/UX trends, and experimenting
+          with creative solutions. I also enjoy learning languages and understanding cultures, which
+          inspires my approach to design and problem-solving.
+        </p>
+        <p class="mt-4">
+          I’m looking to contribute to innovative projects within forward-thinking teams where I can
+          combine my technical skills, creativity, and continuous drive to improve and grow.
+        </p>
+      </div>
+    </div>
+
+    <div class="about-images mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 w-full items-stretch">
+      <div class="relative overflow-hidden rounded-2xl w-full md:max-w-[500px] max-h-[600px]">
+        <img
+          src="/images/jimmy.png"
+          alt="Mohamed Jamal Portrait"
+          class="object-cover w-full h-full"
+        />
+      </div>
+
+      <div class="relative overflow-hidden rounded-2xl w-full max-h-[600px]">
+        <img src="/images/logo.jpg" alt="Working on design" class="object-cover h-full w-full" />
+      </div>
+    </div>
+
+    <div id="experience" class="mt-24">
+      <app-experience></app-experience>
+    </div>
+
+    <div id="tech-stack" class="mt-24">
+      <app-tech-marquee></app-tech-marquee>
+    </div>
+  </div>
+</section>

@@ -8,7 +8,8 @@ export const routes: Routes = [
   },
   {
     path: 'about',
-    loadComponent: () => import('./features/about/about-page').then((m) => m.AboutPageComponent),
+    loadComponent: () =>
+      import('./features/about/pages/about-page/about-page').then((m) => m.AboutPageComponent),
   },
   {
     path: 'projects',
@@ -17,14 +18,14 @@ export const routes: Routes = [
         path: '',
         loadComponent: () =>
           import('./features/projects/pages/project-list/project-list').then(
-            (m) => m.ProjectListComponent
+            (m) => m.ProjectListComponent,
           ),
       },
       {
         path: ':slug',
         loadComponent: () =>
           import('./features/projects/pages/project-details/project-details').then(
-            (m) => m.ProjectDetailsComponent
+            (m) => m.ProjectDetailsComponent,
           ),
       },
     ],
@@ -33,7 +34,7 @@ export const routes: Routes = [
     path: 'contact',
     loadComponent: () =>
       import('./features/contact/pages/contact-page/contact-page').then(
-        (m) => m.ContactPageComponent
+        (m) => m.ContactPageComponent,
       ),
   },
   {

@@ -1,0 +1,65 @@
+<div class="experience-section py-20">
+  <h2 class="section-title text-4xl lg:text-5xl text-white text-center">
+    My <span class="text-primary font-bold">Experience</span>
+  </h2>
+
+  <div class="timeline-container relative max-w-6xl mx-auto ps-4 lg:px-0 mt-16">
+    <!-- Vertical Line -->
+    <div
+      class="timeline-line absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-white/10 -translate-x-1/2"
+    ></div>
+
+    @for (exp of experiences; track $index) {
+      <div
+        class="timeline-item relative flex flex-col md:flex-row items-start md:items-center justify-between mb-16 last:mb-0"
+        [class.md:flex-row-reverse]="$index % 2 !== 0"
+      >
+        <!-- Experience Content -->
+        <div class="timeline-content w-full md:w-[45%] pl-10 md:pl-0">
+          <div
+            class="p-6 rounded-2xl bg-[#1e1e1e] border border-white/5 shadow-md hover:border-primary/30 transition-all duration-300 group"
+          >
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+              <span
+                class="period text-primary font-medium text-xs px-3 py-1 rounded-full bg-primary/10 border border-primary/20"
+              >
+                {{ exp.period }}
+              </span>
+              <span class="location text-secondary text-xs uppercase tracking-wider">{{
+                exp.location
+              }}</span>
+            </div>
+
+            <h3
+              class="text-xl lg:text-2xl text-white mb-1 group-hover:text-primary transition-colors"
+            >
+              {{ exp.title }}
+            </h3>
+            <p class="company text-secondary text-sm mb-4 font-medium">
+              {{ exp.company }} <span class="opacity-30 mx-2">|</span> {{ exp.type }}
+            </p>
+
+            <ul class="space-y-3">
+              @for (bullet of exp.description; track $index) {
+                <li class="text-secondary/80 text-sm leading-relaxed flex gap-3">
+                  <span class="text-primary font-bold">•</span>
+                  <span>{{ bullet }}</span>
+                </li>
+              }
+            </ul>
+          </div>
+        </div>
+
+        <!-- Timeline Dot -->
+        <div
+          class="timeline-marker absolute left-0 md:left-1/2 top-8 md:top-1/2 -translate-x-1/2 md:-translate-y-1/2 z-10 w-8 h-8 flex items-center justify-center"
+        >
+          <div class="w-4 h-4 rounded-full bg-primary ring-4 ring-[#00000080]"></div>
+        </div>
+
+        <!-- Spacer for the other side (Desktop Only) -->
+        <div class="hidden md:block md:w-[45%]"></div>
+      </div>
+    }
+  </div>
+</div>

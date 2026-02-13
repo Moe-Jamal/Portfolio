@@ -1,0 +1,24 @@
+.timeline-container {
+    padding-bottom: 1rem;
+}
+
+.timeline-item:hover .timeline-marker div {
+    transform: scale(1.4);
+    box-shadow: 0 0 20px var(--primary-color);
+}
+
+.timeline-marker div {
+    transition: all 0.3s ease;
+}
+
+/* Optional: add a subtle glow to the line */
+.timeline-line {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 767px) {
+    .timeline-line {
+        left: 1rem;
+        transform: none;
+    }
+}

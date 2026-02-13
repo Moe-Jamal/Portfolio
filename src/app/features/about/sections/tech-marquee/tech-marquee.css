@@ -1,0 +1,32 @@
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-50% - 3rem));
+        /* -50% for the set, -3rem for the gap-12/2 */
+    }
+}
+
+/* Adjust calc based on gap (gap-12 is 3rem, gap-24 is 6rem) */
+@media (min-width: 1024px) {
+    @keyframes marquee {
+        0% {
+            transform: translateX(0);
+        }
+
+        100% {
+            transform: translateX(calc(-50% - 6rem));
+        }
+    }
+}
+
+.animate-marquee {
+    animation: marquee 40s linear infinite;
+    width: max-content;
+}
+
+.marquee-wrapper:hover .animate-marquee {
+    animation-play-state: paused;
+}

@@ -1,14 +1,17 @@
 @if (loading()) {
-<app-loading-screen message="Loading projects..."></app-loading-screen>
+  <app-loading-screen message="Loading projects..."></app-loading-screen>
 } @else {
-<section class="project-list pt-navbar-height">
-  <div class="container px-4 mx-auto">
-    <app-page-title title="My Projects" description="A collection of my projects"></app-page-title>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      @for (project of projects(); track project.id) {
-      <app-project-card [project]="project" />
-      }
+  <section class="project-list pt-navbar-height">
+    <div class="container px-4 mx-auto">
+      <app-page-title
+        title="My Projects"
+        description="A collection of my projects"
+      ></app-page-title>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        @for (project of projects(); track project.id) {
+          <app-project-card [project]="project" />
+        }
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 }
