@@ -85,6 +85,8 @@ export class ProjectDetailsComponent {
       gsap: Icons.GsapIcon,
       jquery: Icons.jQueryIcon,
       github: Icons.GitHubIcon,
+      tanstack: Icons.TanstackIcon,
+      pinia: Icons.PaniaIcon,
     };
 
     return mapping[normalizedTech] || null;

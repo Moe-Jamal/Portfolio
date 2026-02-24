@@ -2,6 +2,72 @@ import { IProject } from '../../models/project.model';
 
 export const PROJECTS: IProject[] = [
   {
+    id: '9',
+    title: 'The Office',
+    slug: 'the-office-ecommerce-platform',
+    subTitle: 'Premium B2B Commerce Eco-system (Under Development)',
+    description:
+      'Engineered "The Office" a sophisticated Saudi-based B2B platform connecting enterprises with verified suppliers. Built with Nuxt 4 and Tailwind 4, the platform streamlines operational procurement through a robust multi-role architecture (Guest, User, Company, Employee). It features a secure API layer using HttpOnly cookies for session management and CSRF protection, integrated multi-channel payments (Cash, Bank Receipt, Online, Wallet), and advanced caching via TanStack Vue Query. Delivered a high-end UX with SEO-optimized slug structures, AOS animations, and polished skeleton loading states to ensure a seamless "app-like" web experience.',
+    imageUrl: '/images/projects/the-office.png',
+    scrollImage: '/images/projects/the-office-scroll.png',
+    primaryColor: '#ea906c',
+    techStack: ['Nuxt', 'Tailwind', 'Pinia', 'TanStack'],
+    technologies: [
+      'Pinia',
+      'Nuxt UI 4',
+      'Nuxt Image',
+      'Leaflet',
+      'i18n',
+      'Zod',
+      'AOS',
+      'Firebase FCM',
+    ],
+    demoLink: 'https://the-office-nuxt.vercel.app/',
+    highlight: true,
+    features: [
+      {
+        title: 'Multi-Role Auth & RBAC',
+        description:
+          'Comprehensive roles for Guests, Users, Companies, and Employees with specialized permissions for ordering and invoice management.',
+      },
+      {
+        title: 'Nuxt 4 SSR & SEO Slugs',
+        description:
+          'Blazing fast Server-Side Rendering combined with pretty slug-based URLs for maximum search engine visibility and performance.',
+      },
+      {
+        title: 'Secure API Proxying',
+        description:
+          'Implemented server-side API handling with HttpOnly cookies, providing robust protection against CSRF and token-cloning attacks.',
+      },
+      {
+        title: 'Multi-Payment Infrastructure',
+        description:
+          'Integrated support for Cash, Bank Receipt uploads, Online Payments, and a native Wallet system for seamless business transactions.',
+      },
+      {
+        title: 'Enterprise Caching Layer',
+        description:
+          'Leveraged TanStack Vue Query for intelligent data caching and state synchronization, significantly reducing API overhead.',
+      },
+      {
+        title: 'Polished UX & Skeletons',
+        description:
+          'Premium user interface featuring custom-designed skeleton loaders and AOS animations for a smooth, interactive experience.',
+      },
+      {
+        title: 'B2B Credit Facility',
+        description:
+          'Enables companies to apply for credit balances and manage deferred payments directly through the platform ecosystem.',
+      },
+      {
+        title: 'Push Notifications (FCM)',
+        description:
+          'Integrated Firebase Cloud Messaging for real-time order updates and promotional alerts to enhance user engagement.',
+      },
+    ],
+  },
+  {
     id: '1',
     title: 'Webstdy',
     slug: 'webstdy-company-website',
@@ -89,7 +155,7 @@ export const PROJECTS: IProject[] = [
     techStack: ['Vue.js', 'Nuxt', 'Tailwind'],
     technologies: ['i18n', 'shadcn/ui', 'AOS'],
     demoLink: 'https://missionksa.com',
-    highlight: true,
+    highlight: false,
     features: [
       { title: 'Fully Responsive', description: 'Consistent layout across mobile/tablet/desktop.' },
       { title: 'i18n', description: 'Multi-language support for broader reach.' },
